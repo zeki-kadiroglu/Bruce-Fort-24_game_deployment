@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  mydb:
+    image: postgres
+    restart: always
+    # volumes:
+        # - /home/ec2-user/psqldata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: zk1082
+      POSTGRES_USER: postgres
+      POSTGRES_DB: Game
+    ports:
+    - "5432:5432"
+    networks:
+    - clarusnet
+  app-server:
+    build: .
+    depends_on:
+      - mydb
+    ports:
+      - "80:80"
+    networks:
+      - clarusnet
+networks: 
+  clarusnet:

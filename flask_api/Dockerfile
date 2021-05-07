@@ -1,31 +1,9 @@
-FROM python:3
-
-WORKDIR /app
-
-COPY . /app
-
+FROM ubuntu
+WORKDIR /APP
+COPY . .
+RUN apt-get update -y
+RUN apt-get install python3 -y
+RUN apt-get install python3-pip -y
 RUN pip3 install -r requirements.txt
-
-
-EXPOSE 5000
-
-ENTRYPOINT ["python"]
-
-
-CMD ["user.py"]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+EXPOSE 80
+CMD [ "python3","user.py" ]

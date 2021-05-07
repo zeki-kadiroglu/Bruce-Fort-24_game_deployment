@@ -62,7 +62,8 @@ class Solve(db.Model):
     nums = db.relationship('numbers')
 
 
-
+db.create_all()
+db.session.commit()
 
 @app.route('/user', methods=['GET'])
 def get_all_users():
