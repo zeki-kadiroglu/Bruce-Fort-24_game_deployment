@@ -21,7 +21,7 @@ from flask_login import current_user,login_manager,LoginManager,UserMixin
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SECRET_KEY'] = 'thisissecret'                           #
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:zk1082@localhost/Game'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost/Game'
 
 db = SQLAlchemy(app)
 
@@ -150,7 +150,7 @@ def enternums():
     # print(no)
     # if not no:
     #     return jsonify({'message' : 'No solution found!'})
-#############################################DKAFA YOR############3
+#########################################################3
     auth = request.authorization
     print(auth)
     numdata = request.get_json()
